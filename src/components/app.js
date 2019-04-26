@@ -3,6 +3,8 @@ import React from 'react';
 import {
   BrowserRouter as Router, Route, NavLink, Switch,
 } from 'react-router-dom';
+import Counter from '../containers/counter';
+import Controls from '../containers/controls';
 
 const About = (props) => {
   return <div> All there is to know about me </div>;
@@ -24,6 +26,8 @@ const Nav = (props) => {
         <li><NavLink to="/about">About</NavLink></li>
         <li><NavLink to="/test/id1">test id1</NavLink></li>
         <li><NavLink to="/test/id2">test id2</NavLink></li>
+        <Counter />
+        <Controls />
       </ul>
     </nav>
   );
