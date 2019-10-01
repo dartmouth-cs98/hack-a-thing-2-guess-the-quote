@@ -16,6 +16,7 @@ import reducers from './reducers';
 import App from './components/app';
 
 let str = '';
+let str2 = '';
 let num = 1;
 // let num = 1;
 // kanye(() => {
@@ -30,6 +31,7 @@ $('.logo').attr('src', 'src/img/ron.jpg');
 $('.logo').attr('width', '200px');
 $('.logo2').attr('src', 'src/img/kanye.jpg');
 $('.logo2').attr('height', '300px');
+$('.robohash').attr('src', 'src/img/example.jpg');
 $('#main2').text('Click the one you think! The real speaker will remain.');
 
 num = Math.floor(Math.random() * 2 + 1);
@@ -64,13 +66,25 @@ $('#kanye').on('click', () => {
     $('.logo2').hide();
   }
 });
+$('#roboButton').on('click', () => {
+  const roboStr = document.getElementById('roboInput').value;
+
+  const urlString = `https://robohash.p.rapidapi.com/index.php?text=${roboStr}`;
+
+  axios.get(urlString, { headers: { 'X-RapidAPI-Key': '03a9bff2bfmsh6c870ca0e066226p176c2ejsnba81d9d04e8b' } }).then((response) => {
+    str = JSON.stringify(response.data);
+    str2 = JSON.parse(str);
+    console.log('HELLO!');
+    console.log(str2.imageUrl);
+    $('.robohash').attr('src', str2.imageUrl);
+  });
+});
 
 // axios.get('https://api.tronalddump.io/random/quote', { headers: { accept: 'application/hal+json' } }).then((response) => {
 //   str = JSON.stringify(response.data);
 //   console.log(str);
 //   $('#main2').text(str);
 // });
-
 
 // this creates the store with the reducers, and does some other stuff to initialize devtools
 // boilerplate to copy, don't have to know
