@@ -80,8 +80,6 @@ $('#roboButton').on('click', () => {
   axios.get(urlString, { headers: { 'X-RapidAPI-Key': '03a9bff2bfmsh6c870ca0e066226p176c2ejsnba81d9d04e8b' } }).then((response) => {
     str = JSON.stringify(response.data);
     str2 = JSON.parse(str);
-    console.log('HELLO!');
-    console.log(str2.imageUrl);
     $('.robohash').attr('src', str2.imageUrl);
   });
 });
