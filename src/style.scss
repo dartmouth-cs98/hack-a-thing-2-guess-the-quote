@@ -3,12 +3,20 @@ body, html {
     background: linear-gradient(to bottom, #87e0fd 0%,#53cbf1 40%,#05abe0 100%);
     height: 100%;
   }
-  .logo {
-    background-image: url('img/hercules.jpg');
-    width: 100px;
-    height: 100px;
+
+  .pics {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .logo1 {
+    src: url('img/ron.jpg');
     background-repeat: no-repeat;
-    background-size: contain;
+  }
+
+  .logo2 {
+    src: url('img/kanye.jpg');
+    background-repeat: no-repeat;
   }
   .active {
     color: pink;
