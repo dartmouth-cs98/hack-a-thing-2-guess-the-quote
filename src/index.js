@@ -34,6 +34,8 @@ $('.logo2').attr('height', '300px');
 $('.robohash').attr('src', 'src/img/example.jpg');
 $('#main2').text('Click the one you think! The real speaker will remain.');
 
+
+
 num = Math.floor(Math.random() * 2 + 1);
 
 if (num === 1) {
@@ -45,8 +47,9 @@ if (num === 1) {
 } else {
   axios.get('https://ron-swanson-quotes.herokuapp.com/v2/quotes').then((response) => {
     str = JSON.stringify(response.data);
+    var result = str.substring(1,str.length-1);
     console.log(str);
-    $('#main').text(str);
+    $('#main').text(result);
   });
 }
 
@@ -65,6 +68,9 @@ $('#kanye').on('click', () => {
   } else {
     $('.logo2').hide();
   }
+});
+$('#restart').on('click', () => {
+  window.location.reload();
 });
 $('#roboButton').on('click', () => {
   const roboStr = document.getElementById('roboInput').value;
